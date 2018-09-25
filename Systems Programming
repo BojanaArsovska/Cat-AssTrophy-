@@ -29,11 +29,17 @@ int main(int argc, char **argv)
         printf ("%c",buffer[i]);
     }
 
-    if (bytes_read == MAX_BUF_SIZE){
-        
+    int i = 0;
+    while (bytes_read > 0){
+        if (bytes_read == MAX_BUF_SIZE){
+            *buffer = (char *) malloc(sizeof(char) * MAX_BUF_SIZE* i);
+            bytes_read = read(fd, buffer, MAX_BUF_SIZE* i);
+        }
     }
     //deal with more and more reading
 
     //print buffers
     //free mallocs
+
+
 }
